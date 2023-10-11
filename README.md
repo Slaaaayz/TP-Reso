@@ -40,7 +40,7 @@ arp -a 192.168.1.254
 ## 2. Modifications des informations 
 ### A. Modification d'adresse IP (part 1)
 
-![Changement IP](<changement ip.PNG>)
+![Changement IP](<image/changement ip.PNG>)
 
 **Il est possible que vous perdiez l'accès internet.** Que ce soit le cas ou non, expliquez pourquoi c'est possible de perdre son accès internet en faisant cette opération.
 
@@ -98,7 +98,7 @@ Le DNS de google connait le nom du domaine associé à cette adresse IP qui est 
 
 **Un ping entre vous et la passerelle du réseau** 
 
-![Ping passerelle](ping.PNG)
+![Ping passerelle](image/ping.PNG)
 
 
 (manque partie 2 + fichier .pcapng + reste partie 4)
