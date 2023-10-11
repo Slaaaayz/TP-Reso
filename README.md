@@ -40,7 +40,7 @@ arp -a 192.168.1.254
 ## 2. Modifications des informations 
 ### A. Modification d'adresse IP (part 1)
 
-![Changement ip](<changement ip.PNG>)
+![Changement IP](<changement ip.PNG>)
 
 **Il est possible que vous perdiez l'accès internet.** Que ce soit le cas ou non, expliquez pourquoi c'est possible de perdre son accès internet en faisant cette opération.
 
