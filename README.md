@@ -99,3 +99,6 @@ Le DNS de google connait le nom du domaine associé à cette adresse IP qui est 
 **Un ping entre vous et la passerelle du réseau** 
 
 ![Ping passerelle](ping.PNG)
+
+
+(manque partie 2 + fichier .pcapng + reste partie 4)
