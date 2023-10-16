@@ -25,16 +25,16 @@ ipconfig
 **Réponse :**
 ```powershell
 PS C:\Users\Maxime> ipconfig
-   Passerelle par défaut. . . . . . . . . : 10.33.50.254 
+   Passerelle par défaut. . . . . . . . . : 10.33.51.254 
 ```
 **🌞 Déterminer la MAC de la passerelle** 
 ```powershell
-arp -a 192.168.1.254
+arp -a 10.33.51.254
 ```
 **Réponse :**
 ```powershell
 Adresse Internet      Adresse physique      Type
-  10.33.50.254         20-66-cf-1a-85-bc     dynamique
+  10.33.51.254         20-66-cf-1a-85-bc     dynamique
 ```
 **🌞 Trouvez comment afficher les informations sur une carte IP (change selon l'OS)**  
 
@@ -42,7 +42,7 @@ Adresse Internet      Adresse physique      Type
 
 - Adresse IP : 10.33.50.245
 - Adresse MAC : 34-6F-24-93-79-AD 
-- Gateway : 10.33.50.254
+- Gateway : 10.33.51.254
 
 ## 2. Modifications des informations 
 ### A. Modification d'adresse IP (part 1)
@@ -88,7 +88,7 @@ arp -a 10.10.10.33
 ```powershell
 Interface : 10.10.10.33 
     Adresse Internet      Adresse physique      Type
-     10.10.10.32           e4-a8-df-d1-98-ca     dynamique
+     10.10.10.33           08-bf-b8-2d-af-1d     dynamique
 ```
 **🌞 sur le PC serveur**  
 ```powershell
@@ -126,58 +126,6 @@ a mettre
 a mettre  
 **🌞 Prouver que la connexion Internet passe bien par l'autre PC**   
 a mettre  
-🌞 **Exploration du DHCP**
-
-`>> ipconfig /all`
-
-> Résultat :
-
-     Serveur DHCP . . . . . . . . . . . . . : 10.33.51.254
-      Bail obtenu. . . . . . . . . . . . . . : lundi 16 octobre 2023 13:43:41
-   Bail expirant. . . . . . . . . . . . . : mardi 17 octobre 2023 13:43:39
-
-🌞 **Trouver l'adresse IP du serveur DNS que connaît votre ordinateur**
-
-`>> ipconfig /all`
-
-> Résultat :
-
-    Serveurs DNS. . .  . . . . . . . . . . : 10.33.10.2
-    8.8.8.8
-
-🌞 **NSLOOKUP**
-
-`>> nslookup google.com 8.8.8.8`
-
-> Résultat :
-
-    Serveur :   dns.google
-    Address:  8.8.8.8
-
-    Réponse ne faisant pas autorité :
-    Nom :    google.com
-    Addresses:  2a00:1450:4007:818::200e
-            142.250.179.110
-
-`>> nslookup 231.34.113.12 8.8.8.8`
-
-> Résultat :
-
-    *** dns.google ne parvient pas à trouver 231.34.113.12 : Non-existent domain
-
-`>> nslookup 78.34.2.17 8.8.8.8`
-
-> Résultat :
-
-    Serveur :   dns.google
-    Address:  8.8.8.8
-
-    Réponse ne faisant pas autorité :
-    Nom :    google.com
-    Addresses:  2a00:1450:4007:818::200e
-            142.250.179.110
- 
-
 # III. Manipulations d'autres outils/protocoles côté client
 ## 1. DHCP d'autres outils/protocoles côté client
 **🌞Exploration du DHCP, depuis votre PC**
@@ -187,8 +135,8 @@ ipconfig /all
 **Reponse :**
 ```powershell
 PS C:\Users\Maxime> ipconfig /all
-Serveur DHCP . . . . . . . . . . . . . : 192.168.1.254
-Bail expirant. . . . . . . . . . . . . : eudi 12 octobre 2023 03:28:22
+Serveur DHCP . . . . . . . . . . . . . : 10.33.51.254
+Bail expirant. . . . . . . . . . . . . : mardi 17 octobre 2023 13:43:39
 ```
 ## 2. DNS
 🌞**Trouver l'adresse IP du serveur DNS que connaît votre ordinateur**
@@ -199,7 +147,7 @@ ipconfig /all
 ```powershell
 PS C:\Users\Maxime> ipconfig /all
 Carte réseau sans fil Wi-Fi :
-Serveurs DNS. . .  . . . . . . . . . . : 10.33.50.254
+Serveurs DNS. . .  . . . . . . . . . . : 10.33.50.2
                                          8.8.8.8
 ```
 **🌞 Utiliser, en ligne de commande l'outil nslookup**
@@ -216,7 +164,7 @@ Address:  8.8.8.8
 Réponse ne faisant pas autorité :
 Nom :    google.com
 Addresses:  2a00:1450:4007:818::200e
-          216.58.214.174
+          142.250.178.142
 ```
 - **Puis pour Ynov :** 
 ```powershell
