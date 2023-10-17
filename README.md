@@ -334,4 +334,9 @@ ping 10.10.10.34
 ```
 **Réponse :**
 ![Alt text](netcat.PNG)
-
+- **une requête DNS. Identifiez dans la capture le serveur DNS à qui vous posez la question.**
+```powershell
+nslookup 8.8.8.8 10.10.10.34
+```
+![Alt text](dns.PNG)
+*Il faut poser la question a l'ordinateur 
