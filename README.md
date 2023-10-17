@@ -338,5 +338,6 @@ ping 10.10.10.34
 ```powershell
 nslookup 8.8.8.8 10.10.10.34
 ```
-![Alt text](dns.PNG)
-*Il faut poser la question a l'ordinateur 
+**Réponse :**
+![Alt text](dns-1.PNG)
+*Il faut poser la question a l'ordinateur qui possede internet*
