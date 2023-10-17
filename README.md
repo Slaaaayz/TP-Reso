@@ -58,4 +58,41 @@ Durée approximative des boucles en millisecondes :
 
 
 
-[yoyoyoyoy](./ping%20request.pcapng)
+[ping](./ping%20request.pcapng)
+
+```powershell
+arp -a 10.10.10.33
+```
+Reponse
+PS C:\Users\melb3> arp -a 10.10.10.34
+
+Interface : 10.10.10.33 --- 0x16
+  Adresse Internet      Adresse physique      Type
+  10.10.10.34           7c-57-58-68-83-12     dynamique
+arp -a
+
+Interface : 10.10.10.33 --- 0x16
+  Adresse Internet      Adresse physique      Type
+  10.10.10.34           7c-57-58-68-83-12     dynamique
+  10.10.10.35           ff-ff-ff-ff-ff-ff     statique
+  224.0.0.22            01-00-5e-00-00-16     statique
+  224.0.0.251           01-00-5e-00-00-fb     statique
+  239.255.255.250       01-00-5e-7f-ff-fa     statique
+
+arp - a 10.10.1035 
+
+reponse
+PS C:\Users\melb3> arp -a 10.10.10.35
+
+Interface : 10.10.10.33 --- 0x16
+  Adresse Internet      Adresse physique      Type
+  10.10.10.35           ff-ff-ff-ff-ff-ff     statique
+
+10.33.51.254          7c-5a-1c-cb-fd-a4     dynamique
+
+netsh interface IP delete arpcache
+
+Interface : 10.10.10.33 --- 0x16
+  Adresse Internet      Adresse physique      Type
+  10.10.10.34           7c-57-58-68-83-12     dynamique
+  224.0.0.22            01-00-5e-00-00-16     statique
