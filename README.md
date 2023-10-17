@@ -111,14 +111,24 @@ Chat ouvert aves l'autre pc
 netstat -a -n -b | Select-String 8888 -Context 0,1
 ```
 **Réponse :**
-a mettre  
+```powershell
+PS C:\WINDOWS\system32> netstat -a -n -b | Select-String 8888 -Context 0,1
+
+>   TCP    10.10.10.34:8888       10.10.10.33:58213      ESTABLISHED
+   [nc.exe]
+```
 
 **🌞 Pour aller un peu plus loin**
 ```powershell
 .\nc.exe -l -p 8888 -s 10.10.10.34
 ```
 **Réponse :**  
-a mettre 
+```powershell
+PS C:\WINDOWS\system32> netstat -a -n -b | Select-String 8888 -Context 0,1
+
+>   TCP    10.10.10.34:8888       0.0.0.0:0              LISTENING
+   [nc.exe]
+```
 ## 5. Firewall
 **🌞 Activez et configurez votre firewall**   
 - **Autoriser les ping**  
