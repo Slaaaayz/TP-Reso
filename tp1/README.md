@@ -1,4 +1,4 @@
-# I. Exploration locale en solo
+# I. Exploration locale en solo (CHORT Maxime)
 ## 1. Affichage d'informations sur la pile TCP/IP locale
 **🌞 Affichez les infos des cartes réseau de votre PC**
 ```powershell
