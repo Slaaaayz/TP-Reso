@@ -92,6 +92,7 @@ Interface : 10.10.10.33
     Adresse Internet      Adresse physique      Type
      10.10.10.33           08-bf-b8-2d-af-1d     dynamique
 ```
+## 4. Petit chat privé
 **🌞 sur le PC serveur**  
 ```powershell
 .\nc.exe -l -p 8888
