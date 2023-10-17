@@ -314,3 +314,24 @@ Address:  78.34.2.17
 Le DNS de google connait le nom du domaine associé à cette adresse IP qui est : cable-78-34-2-17.nc.de
 
 # IV. Wireshark
+**🌞 Utilisez le pour observer les trames qui circulent entre vos deux carte Ethernet. Mettez en évidence :**  
+- **un ping entre vous et votre mate**
+```powershell
+ping 10.10.10.33
+```
+**Réponse :**
+![Alt text](10.10.10.33.PNG)  
+- **un ping entre vous et la passerelle du réseau**
+```powershell
+ping 10.10.10.34
+```
+**Réponse :**
+![Alt text](ping.PNG)  
+- **un netcat entre vous et votre mate, branché en RJ45**
+```powershell
+.\nc.exe -l -p 8888 
+.\nc.exe 10.10.10.34 8888
+```
+**Réponse :**
+![Alt text](netcat.PNG)
+
