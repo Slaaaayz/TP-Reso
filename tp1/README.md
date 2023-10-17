@@ -133,9 +133,9 @@ PS C:\WINDOWS\system32> netstat -a -n -b | Select-String 8888 -Context 0,1
 **🌞 Activez et configurez votre firewall**   
 - **Autoriser les ping**  
 Il faut ajouter une règle pour le ping   
-![Alt text](regle.PNG)  
+![Alt text](image/regle.PNG)  
 Puis dire a qui cette règle doit s'appliquer  
-![Alt text](<glisse ip.PNG>)  
+![Alt text](<image/glisse ip.PNG>)  
 Faire de même pour les règles de traffic sortant mais en lui autorisant la connexion  
 ```powershell
 ping 10.10.10.34
@@ -320,24 +320,24 @@ Le DNS de google connait le nom du domaine associé à cette adresse IP qui est 
 ping 10.10.10.33
 ```
 **Réponse :**
-![Alt text](10.10.10.33.PNG)  
+![Alt text](image/10.10.10.33.PNG)  
 - **un ping entre vous et la passerelle du réseau**
 ```powershell
 ping 10.10.10.34
 ```
 **Réponse :**
-![Alt text](ping.PNG)  
+![Alt text](image/ping2.PNG)  
 - **un netcat entre vous et votre mate, branché en RJ45**
 ```powershell
 .\nc.exe -l -p 8888 
 .\nc.exe 10.10.10.34 8888
 ```
 **Réponse :**
-![Alt text](netcat.PNG)
+![Alt text](image/netcat.PNG)
 - **une requête DNS. Identifiez dans la capture le serveur DNS à qui vous posez la question.**
 ```powershell
 nslookup 8.8.8.8 10.10.10.34
 ```
 **Réponse :**
-![Alt text](dns-1.PNG)
+![Alt text](image/dns-1.PNG)
 *Il faut poser la question a l'ordinateur qui possede internet*
