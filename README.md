@@ -34,7 +34,7 @@ arp -a 10.33.51.254
 **Réponse :**
 ```powershell
 Adresse Internet      Adresse physique      Type
-  10.33.51.254         20-66-cf-1a-85-bc     dynamique
+  10.33.51.254         7c-5a-1c-cb-fd-a4     dynamique
 ```
 **🌞 Trouvez comment afficher les informations sur une carte IP (change selon l'OS)**  
 
@@ -101,10 +101,11 @@ PS C:\Users\Maxime\Documents\netcat-1.11> .\nc.exe -l -p 8888
 *Il faut attendre que le client se connecte car aucune réponse*  
 **🌞 sur le PC client**
 ```powershell
-.\nc.exe 10.10.10.33- 8888
+.\nc.exe 10.10.10.34 8888
 ```
 **Réponse :**
-Chat ouvert aves l'autre pc 
+Chat ouvert aves l'autre pc   
+
 **🌞 Visualiser la connexion en cours**
 ```powershell
 netstat -a -n -b | Select-String 8888 -Context 0,1
@@ -119,13 +120,99 @@ a mettre
 **Réponse :**  
 a mettre 
 ## 5. Firewall
-**🌞 Activez et configurez votre firewall**  
-a mettre  
+**🌞 Activez et configurez votre firewall**   
+- **Autoriser les ping**  
+Il faut ajouter une règle pour le ping   
+![Alt text](regle.PNG)  
+Puis dire a qui cette règle doit s'appliquer  
+![Alt text](<glisse ip.PNG>)  
+Faire de même pour les règles de traffic sortant mais en lui autorisant la connexion  
+```powershell
+ping 10.10.10.34
+```
+**Réponse :**
+```powershell
+PS C:\Users\Maxime> ping 10.10.10.34
+
+Envoi d’une requête 'Ping'  10.10.10.34 avec 32 octets de données :
+Réponse de 10.10.10.34 : octets=32 temps=2 ms TTL=128
+Réponse de 10.10.10.34 : octets=32 temps=2 ms TTL=128
+Réponse de 10.10.10.34 : octets=32 temps=2 ms TTL=128
+Réponse de 10.10.10.34 : octets=32 temps=2 ms TTL=128
+
+Statistiques Ping pour 10.10.10.34:
+    Paquets : envoyés = 4, reçus = 4, perdus = 0 (perte 0%),
+Durée approximative des boucles en millisecondes :
+    Minimum = 2ms, Maximum = 2ms, Moyenne = 2ms
+```
+- **Autoriser le traffic sur le port qu'utilise nc**  
+Créer une règle de traffic entrant en type de règle port puis y inserer un port comme par exemple 8888  
+Créer une règle de traffic sortant en type de règle port puis y inserer le port du traffic entrant et autoriser la connexion entre eux 
+
 ## 6. Utilisation d'un des deux comme gateway
+
 **🌞Tester l'accès internet**   
-a mettre  
+```powershell
+ping 1.1.1.1
+```
+**Réponse :**
+```powershell
+PS C:\Users\Maxime> ping 1.1.1.1
+
+Envoi d’une requête 'Ping'  1.1.1.1 avec 32 octets de données :
+Réponse de 1.1.1.1 : octets=32 temps=91 ms TTL=55
+Réponse de 1.1.1.1 : octets=32 temps=64 ms TTL=55
+Réponse de 1.1.1.1 : octets=32 temps=31 ms TTL=55
+Réponse de 1.1.1.1 : octets=32 temps=14 ms TTL=55
+
+Statistiques Ping pour 1.1.1.1:
+    Paquets : envoyés = 4, reçus = 4, perdus = 0 (perte 0%),
+Durée approximative des boucles en millisecondes :
+    Minimum = 14ms, Maximum = 91ms, Moyenne = 50ms
+```
 **🌞 Prouver que la connexion Internet passe bien par l'autre PC**   
-a mettre  
+```powershell
+tracert 10.10.10.34
+``` 
+**Réponse :**
+```powershell
+PS C:\Users\Maxime> tracert 10.10.10.34
+
+Détermination de l’itinéraire vers 10.10.10.34 avec un maximum de 30 sauts.
+
+  1     *        *        *     Délai d’attente de la demande dépassé.
+  2     *        *        *     Délai d’attente de la demande dépassé.
+  3     *        *        *     Délai d’attente de la demande dépassé.
+  4     *        *        *     Délai d’attente de la demande dépassé.
+  5     *        *        *     Délai d’attente de la demande dépassé.
+  6     *        *        *     Délai d’attente de la demande dépassé.
+  7     *        *        *     Délai d’attente de la demande dépassé.
+  8     *        *        *     Délai d’attente de la demande dépassé.
+  9     *        *        *     Délai d’attente de la demande dépassé.
+ 10     *        *        *     Délai d’attente de la demande dépassé.
+ 11     *        *        *     Délai d’attente de la demande dépassé.
+ 12     *        *        *     Délai d’attente de la demande dépassé.
+ 13     *        *        *     Délai d’attente de la demande dépassé.
+ 14     *        *        *     Délai d’attente de la demande dépassé.
+ 15     *        *        *     Délai d’attente de la demande dépassé.
+ 16     *        *        *     Délai d’attente de la demande dépassé.
+ 17     *        *        *     Délai d’attente de la demande dépassé.
+ 18     *        *        *     Délai d’attente de la demande dépassé.
+ 19     *        *        *     Délai d’attente de la demande dépassé.
+ 20     *        *        *     Délai d’attente de la demande dépassé.
+ 21     *        *        *     Délai d’attente de la demande dépassé.
+ 22     *        *        *     Délai d’attente de la demande dépassé.
+ 23     *        *        *     Délai d’attente de la demande dépassé.
+ 24     *        *        *     Délai d’attente de la demande dépassé.
+ 25     *        *        *     Délai d’attente de la demande dépassé.
+ 26     *        *        *     Délai d’attente de la demande dépassé.
+ 27     *        *        *     Délai d’attente de la demande dépassé.
+ 28     *        *        *     Délai d’attente de la demande dépassé.
+ 29     *        *        *     Délai d’attente de la demande dépassé.
+ 30     *        *        *     Délai d’attente de la demande dépassé.
+
+Itinéraire déterminé.
+```
 # III. Manipulations d'autres outils/protocoles côté client
 ## 1. DHCP d'autres outils/protocoles côté client
 **🌞Exploration du DHCP, depuis votre PC**
