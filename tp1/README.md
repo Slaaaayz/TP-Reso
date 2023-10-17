@@ -56,7 +56,9 @@ Adresse Internet      Adresse physique      Type
 # II. Exploration locale en duo
 ## 3. Modification d'adresse IP
 **🌞 Modification de nos adresses IP en utilisant le GUI (windows)**  
+
 Adresse IP choisis :   10.10.10.33 et 10.10.10.34
+
 ![Alt text](<image/changement ipppp.PNG>)  
 **🌞 Vérifier à l'aide d'une commande que votre IP a bien été changée**
 ```powershell
