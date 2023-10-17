@@ -1,16 +1,17 @@
 # Sommaire
-- [Exploration locale en solo](#i-exploration-locale-en-solo-(CHORT-Maxime))
-  - [Affichage d'informations sur la pile TCP/IP locale](#1-affichage-dinformations-sur-la-pile-tcpip-locale)
-  - [Modifications des informations](#2-modifications-des-informations)
-- [Exploration locale en duo](#ii-exploration-locale-en-duo)
-  - [Modification d'adresse IP](#modification-dadresse-ip)
-  - [Petit chat privé](#petit-chat-privé-)
-  - [Firewall](#firewall)
-  - [Utilisation d'un des deux comme gateway](#utilisation-dun-des-deux-comme-gateway)
-- [Manipulations d'autres outils/protocoles côté client](#iii-manipulations-dautres-outilsprotocoles-côté-client)
-  - [DHCP](#1-dhcp)
-  - [DNS](#2-dns)
-- [Wireshark](#iv-wireshark)
+- [I. Exploration locale en solo](#i-exploration-locale-en-solo-chort-maxime)
+  - [1. Affichage d'informations sur la pile TCP/IP locale](#1-affichage-dinformations-sur-la-pile-tcpip-locale)
+  - [2. Modifications des informations](#2-modifications-des-informations)
+    - [A. Modification d'adresse IP (part 1)](#a-modification-d'adresse-ip-part-1)
+- [II. Exploration locale en duo](#ii-exploration-locale-en-duo)
+  - [3. Modification d'adresse IP](#3-modification-dadresse-ip)
+  - [4. Petit chat privé](#4-petit-chat-privé)
+  - [5. Firewall](#5-firewall)
+  - [6. Utilisation d'un des deux comme gateway](#6-utilisation-dun-des-deux-comme-gateway)
+- [III. Manipulations d'autres outils/protocoles côté client](#iii-manipulations-dautres-outilsprotocoles-côté-client)
+  - [1. DHCP](#1-dhcp)
+  - [2. DNS](#2-dns)
+- [IV. Wireshark](#iv-wireshark)
 # I. Exploration locale en solo (CHORT Maxime)
 ## 1. Affichage d'informations sur la pile TCP/IP locale
 **🌞 Affichez les infos des cartes réseau de votre PC**
@@ -240,7 +241,7 @@ Détermination de l’itinéraire vers 10.10.10.34 avec un maximum de 30 sauts.
 Itinéraire déterminé.
 ```
 # III. Manipulations d'autres outils/protocoles côté client
-## 1. DHCP d'autres outils/protocoles côté client
+## 1. DHCP
 **🌞Exploration du DHCP, depuis votre PC**
 ```powershell
 ipconfig /all
