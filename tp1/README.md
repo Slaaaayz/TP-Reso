@@ -1,11 +1,3 @@
-SOMMAIRE   
-- [I. Exploration locale en solo](#I-Exploration-locale-en-solo-(CHORT-Maxime))  
-[1. Affichage d'informations sur la pile TCP/IP locale](#1-Affichage-d'informations-sur-la-pile-TCP/IP-locale)  
-[2. Modifications des informations](#2-modifications-des-informations)   
-    [A. Modification d'adresse IP (part 1)](#A-Modification-d'adresse-IP-(part-1))  
-- [II. Exploration locale en duo](#II-Exploration-locale-en-duo)  
-
-
 
 # I. Exploration locale en solo (CHORT Maxime)
 ## 1. Affichage d'informations sur la pile TCP/IP locale
