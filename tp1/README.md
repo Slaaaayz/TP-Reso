@@ -1,4 +1,16 @@
-
+# Sommaire
+- [Exploration locale en solo](#i-exploration-locale-en-solo-(CHORT-Maxime))
+  - [Affichage d'informations sur la pile TCP/IP locale](#1-affichage-dinformations-sur-la-pile-tcpip-locale)
+  - [Modifications des informations](#2-modifications-des-informations)
+- [Exploration locale en duo](#ii-exploration-locale-en-duo)
+  - [Modification d'adresse IP](#modification-dadresse-ip)
+  - [Petit chat privé](#petit-chat-privé-)
+  - [Firewall](#firewall)
+  - [Utilisation d'un des deux comme gateway](#utilisation-dun-des-deux-comme-gateway)
+- [Manipulations d'autres outils/protocoles côté client](#iii-manipulations-dautres-outilsprotocoles-côté-client)
+  - [DHCP](#1-dhcp)
+  - [DNS](#2-dns)
+- [Wireshark](#iv-wireshark)
 # I. Exploration locale en solo (CHORT Maxime)
 ## 1. Affichage d'informations sur la pile TCP/IP locale
 **🌞 Affichez les infos des cartes réseau de votre PC**
