@@ -1,8 +1,9 @@
+# <div align='center'>TP1 - Premier pas réseau (CHORT Maxime)
 # Sommaire
-- [I. Exploration locale en solo](#i-exploration-locale-en-solo-chort-maxime)
+- [I. Exploration locale en solo](#i-exploration-locale-en-solo)
   - [1. Affichage d'informations sur la pile TCP/IP locale](#1-affichage-dinformations-sur-la-pile-tcpip-locale)
   - [2. Modifications des informations](#2-modifications-des-informations)
-    - [A. Modification d'adresse IP (part 1)](#a-modification-d'adresse-ip-part-1)
+    - [A. Modification d'adresse IP (part 1)](#a-modification-dadresse-ip-part-1)
 - [II. Exploration locale en duo](#ii-exploration-locale-en-duo)
   - [3. Modification d'adresse IP](#3-modification-dadresse-ip)
   - [4. Petit chat privé](#4-petit-chat-privé)
@@ -12,7 +13,7 @@
   - [1. DHCP](#1-dhcp)
   - [2. DNS](#2-dns)
 - [IV. Wireshark](#iv-wireshark)
-# I. Exploration locale en solo (CHORT Maxime)
+# I. Exploration locale en solo
 ## 1. Affichage d'informations sur la pile TCP/IP locale
 **🌞 Affichez les infos des cartes réseau de votre PC**
 ```powershell
