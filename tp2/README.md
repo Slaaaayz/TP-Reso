@@ -1,12 +1,17 @@
-ip choisi : 10.10.10.33/30 et 10.10.10.34/30
-adresse de reseau 10.10.10.32
-adresse de broadcast 10.10.10.35
+# <div align='center'>TP2 : Ethernet, IP, et ARP (CHORT Maxime)
+## I. Setup IP
+**🌞 Mettez en place une configuration réseau fonctionnelle entre les deux machines**  
+- IP choisi : 10.10.10.33/30 et 10.10.10.34/30  
+- Adresse de réseau : 10.10.10.32  
+- Adresse de broadcast : 10.10.10.35  
 
+
+*commandes utilisées pour définir les adresses IP via la ligne de commande :*
 ```powershell
 New-NetIPAddress –InterfaceIndex 22 –IPAddress 10.10.10.33 –PrefixLength 30
 ```
-Reponse 
-ps c user macime > 
+**Réponse :**  
+```powershell
 PS C:\WINDOWS\system32> New-NetIPAddress -InterfaceIndex 22 -IPAddress 10.10.10.33 -PrefixLength 30
 
 
@@ -37,12 +42,13 @@ ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
 PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
 SkipAsSource      : False
 PolicyStore       : PersistentStore
-
-🌞 Prouvez que la connexion est fonctionnelle entre les deux machines
+```
+**🌞 Prouvez que la connexion est fonctionnelle entre les deux machines**
 ```powershell
 ping 10.10.10.34
 ```
-reponse
+**Réponse :**
+```powershell
 PS C:\Users\melb3> ping 10.10.10.34
 
 Envoi d’une requête 'Ping'  10.10.10.34 avec 32 octets de données :
@@ -55,44 +61,51 @@ Statistiques Ping pour 10.10.10.34:
     Paquets : envoyés = 4, reçus = 4, perdus = 0 (perte 0%),
 Durée approximative des boucles en millisecondes :
     Minimum = 3ms, Maximum = 4ms, Moyenne = 3ms
-
-
-
-[ping](./ping%20request.pcapng)
-
-```powershell
-arp -a 10.10.10.33
 ```
-Reponse
-PS C:\Users\melb3> arp -a 10.10.10.34
+**🌞 Wireshark it**  
+Le type de paquet ICMP envoyé par ping est un echo de type 8 (demande d'ECHO) et reçoit un message ICMP de type 0 (réponse d'écho) en retour.
 
+[Clique ici pour voir les paquets ICMP  ](./ping%20request.pcapng)
+## II. ARP my bro
+**🌞 Check the ARP table**
+```powershell
+arp -a 
+```
+**Réponse :**  
+```powershell
+PS C:\Users\melb3> arp -a 
 Interface : 10.10.10.33 --- 0x16
   Adresse Internet      Adresse physique      Type
-  10.10.10.34           7c-57-58-68-83-12     dynamique
-arp -a
-
-Interface : 10.10.10.33 --- 0x16
-  Adresse Internet      Adresse physique      Type
-  10.10.10.34           7c-57-58-68-83-12     dynamique
+  10.10.10.34           ⭐7c-57-58-68-83-12⭐     dynamique
   10.10.10.35           ff-ff-ff-ff-ff-ff     statique
   224.0.0.22            01-00-5e-00-00-16     statique
   224.0.0.251           01-00-5e-00-00-fb     statique
   239.255.255.250       01-00-5e-7f-ff-fa     statique
-
-arp - a 10.10.1035 
-
-reponse
-PS C:\Users\melb3> arp -a 10.10.10.35
-
-Interface : 10.10.10.33 --- 0x16
-  Adresse Internet      Adresse physique      Type
-  10.10.10.35           ff-ff-ff-ff-ff-ff     statique
-
-10.33.51.254          7c-5a-1c-cb-fd-a4     dynamique
-
+```
+- **déterminez la MAC de la gateway de votre réseau**  
+```powershell
+arp -a 10.33.51.254
+```
+**Réponse :**
+```powershell
+PS C:\Users\melb3> arp -a
+Interface : 10.33.51.254 --- 0x16
+  Adresse Internet       Adresse physique     Type  
+  10.33.51.254          7c-5a-1c-cb-fd-a4     dynamique
+```
+**🌞 Manipuler la table ARP**
+- **Clear ARP**  
+```powershell
 netsh interface IP delete arpcache
-
+```
+```powershell
+arp -a
+```
+**Réponse :**
+```powershell
+PS C:\Users\melb3> arp -a
 Interface : 10.10.10.33 --- 0x16
   Adresse Internet      Adresse physique      Type
   10.10.10.34           7c-57-58-68-83-12     dynamique
   224.0.0.22            01-00-5e-00-00-16     statique
+```
