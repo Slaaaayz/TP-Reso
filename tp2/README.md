@@ -106,6 +106,70 @@ arp -a
 PS C:\Users\melb3> arp -a
 Interface : 10.10.10.33 --- 0x16
   Adresse Internet      Adresse physique      Type
-  10.10.10.34           7c-57-58-68-83-12     dynamique
   224.0.0.22            01-00-5e-00-00-16     statique
+  224.0.0.251           01-00-5e-00-00-fb     statique
+  224.0.0.252           01-00-5e-00-00-fc     statique
 ```
+**Après un autre ping :**
+
+**Réponse :**
+```powershell
+PS C:\Users\melb3> arp -a
+Interface : 10.10.10.33 --- 0x16
+  Adresse Internet      Adresse physique      Type
+  10.10.10.34           08-bf-b8-2d-af-1d     dynamique
+  224.0.0.22            01-00-5e-00-00-16     statique
+  224.0.0.251           01-00-5e-00-00-fb     statique
+  224.0.0.252           01-00-5e-00-00-fc     statique
+```
+[Clique ici pour voir les trames ARP ](./arp.pcapng)  
+
+1ère trame  
+
+    Source: ASUSTekC_2d:af:1d   (08:bf:b8:2d:af:1d) 
+    Destination: ASUSTekC_30:83:17   (50:eb:f6:30:83:17)  
+ 
+
+2ème trame  
+
+    Source: ASUSTekC_30:83:17 (50:eb:f6:30:83:17)
+    Destination: ASUSTekC_2d:af:1d (08:bf:b8:2d:af:1d)
+
+   
+Chacune de ces adresses correspondent à l'adresse mac des pc reliés en ethernet 
+
+## III. DHCP
+
+🌞 Wireshark it
+
+[Clique ici pour voir l'echange DORA ](./dhcp.pcapng)   
+
+- Identifiez les 4 trames DHCP lors d'un échange DHCP
+  - mettez en évidence les adresses source et destination de chaque trame
+- Identifiez dans ces 4 trames les informations 1, 2 et 3 dont on a parlé juste au dessus
+
+1 : 192.168.1.17  (Une IP à utiliser)  
+2 : 192.168.1.254 (l'adresse IP de la passerelle du réseau)  
+3 : 192.168.1.254 (l'adresse d'un serveur DNS joignable depuis ce réseau)
+
+1ère trame
+
+    Source: CloudNet_d0:03:05 (d8:80:83:d0:03:05)
+    Destination: Broadcast (ff:ff:ff:ff:ff:ff)
+
+2ème trame 
+
+    Source: FreeboxS_0e:c5:55 (38:07:16:0e:c5:55)
+    Destination: CloudNet_d0:03:05 (d8:80:83:d0:03:05)
+
+3ème trame  
+
+    Source: CloudNet_d0:03:05 (d8:80:83:d0:03:05)
+    Destination: Broadcast (ff:ff:ff:ff:ff:ff)
+
+4ème trame 
+
+    Source: FreeboxS_0e:c5:55 (38:07:16:0e:c5:55)
+    Destination: CloudNet_d0:03:05 (d8:80:83:d0:03:05)
+ 
+    
