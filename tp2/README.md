@@ -48,6 +48,11 @@ PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
 SkipAsSource      : False
 PolicyStore       : PersistentStore
 ```
+*commande utilisée pour trouver l'index de l'ethernet :*
+
+```powershell
+netsh int ipv4 show interfaces
+```
 **🌞 Prouvez que la connexion est fonctionnelle entre les deux machines**
 ```powershell
 ping 10.10.10.34
