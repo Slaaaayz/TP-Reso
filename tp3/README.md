@@ -1,10 +1,10 @@
 # TP3 : On va router des trucs (CHORT Maxime)
 - [I. ARP](#i-arp)
-  - [1. Echange ARP](#1-echange-ARP)
-  - [2. Analyse de trames](#2-analyse-de-trame)
+  - [1. Echange ARP](#1-echange-arp)
+  - [2. Analyse de trames](#2-analyse-de-trames)
 - [II. Routage](#ii-routage)
   - [1. Mise en place du routage](#1-mise-en-place-du-routage)
-  - [2. Analyse de trames](#2-analyse-de-trames)
+  - [2. Analyse de trame](#2-analyse-de-trame)
   - [3. Accès internet](#3-accès-internet)
   
 # I. ARP
@@ -157,7 +157,7 @@ PING 10.3.1.11 (10.3.1.11) 56(84) bytes of data.
 rtt min/avg/max/mdev = 1.715/1.825/1.934/0.089 ms
 ```
 
-## 2. Analyse de trames
+## 2. Analyse de trame
 
 | ordre | type trame  | IP source           | MAC source                 | IP destination      | MAC destination            |
 | ----- | ----------- | ----------------    | -------------------------  | --------------      | -------------------------- |
