@@ -1,5 +1,13 @@
-# TP3 : On va router des trucs
-
+# TP3 : On va router des trucs (CHORT Maxime)
+- [I. ARP](#i-arp)
+  - [1. Echange ARP](#1-echange-ARP)
+  - [2. Analyse de trames](#2-analyse-de-trame)
+- [II. Routage](#ii-routage)
+  - [1. Mise en place du routage](#1-mise-en-place-du-routage)
+  - [2. Analyse de trames](#2-analyse-de-trames)
+  - [3. Accès internet](#3-accès-internet)
+  
+# I. ARP
 ## 1.Echange ARP
 **🌞Générer des requêtes ARP**
 - effectuer un ping d'une machine à l'autre
