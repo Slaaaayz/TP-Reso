@@ -154,7 +154,85 @@ rtt min/avg/max/mdev = 1.715/1.825/1.934/0.089 ms
 | ordre | type trame  | IP source | MAC source                | IP destination | MAC destination            |
 | ----- | ----------- | --------- | ------------------------- | -------------- | -------------------------- |
 | 1     | Requête ARP | x         | `john` `08:00:27:b2:92:c0`| x              | Broadcast `FF:FF:FF:FF:FF` |
-| 2     | Réponse ARP | x        |`routeur``08:00:27:7a:6f:39`| x             | `john`  `08:00:27:b2:92:c0`|
+| 2     | Réponse ARP | x         |`routeur``08:00:27:4d:a3:18`| x             |`john`  `08:00:27:b2:92:c0` |
 | ...   | ...         | ...       | ...                       |                |                            |
-| ?     | Ping        | 10.3.1.11 |`john` `08:00:27:b2:92:c0` | 10.3.2.12      |`routeur``08:00:27:4d:a3:18`|
-| ?     | Pong        | 10.3.2.12 |`routeur``08:00:27:4d:a3:18`| 10.3.1.11     | `john` `08:00:27:b2:92:c0` |
+| 1     | Ping        | 10.3.1.11 |`john` `08:00:27:b2:92:c0` | 10.3.2.12      |`routeur``08:00:27:4d:a3:18`|
+| 2     | Pong        |10.3.2.12  |`routeur``08:00:27:4d:a3:18`| 10.3.1.11     | `john` `08:00:27:b2:92:c0` |
+
+
+## 3. Accès internet
+
+**🌞Donnez un accès internet à vos machines** - config routeur
+
+Ajouter une carte NAT dans les parametres de la machine routeur  
+Puis pour tester si la conexion est établie :
+```bash
+ping 8.8.8.8
+```
+Puis activer le routage vers internet avec :
+```bash
+sudo firewall-cmd --add-masquerade --permanent
+sudo firewall-cmd --reload
+```
+
+**🌞Donnez un accès internet à vos machines** - config client
+- ajoutez une route par défaut à john et marcel  
+  - john :
+  ```bash
+  sudo nano /etc/sysconfig/network
+
+  GATEWAY=10.3.1.254
+  ```
+
+  - marcel :
+  ```bash
+  sudo nano /etc/sysconfig/network
+
+  GATEWAY=10.3.2.254
+  ```
+
+- donnez leur aussi l'adresse d'un serveur DNS qu'ils peuvent utiliser 
+  - john :
+```bash
+  
+sudo nano /etc/sysconfig/network-scripts/ifcfg-enp0s3
+
+
+
+DEVICE=enp0s3
+
+BOOTPROTO=static
+ONBOOT=yes
+
+IPADDR=10.3.1.11
+NETMASK=255.255.255.0
+DNS1=1.1.1.1
+```  
+```bash
+sudo systemctl restart NetworkManager
+```
+```bash
+[slayz@localhost ~]$ ping google.com
+PING google.com (142.250.179.78) 56(84) bytes of data.
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=1 ttl=118 time=13.7 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=2 ttl=118 time=16.9 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=3 ttl=118 time=14.0 ms
+
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 13.745/14.884/16.892/1.423 ms
+```
+  - marcel :
+faire pareil pour marcel
+
+**🌞Analyse de trames**
+
+| ordre | type trame | IP source            | MAC source                 | IP destination       | MAC destination             |
+| ----- | ---------- | -------------------- | -------------------------  | -----------------    | ------------------------    |
+| 1     | ping       | `john` `10.3.1.11`   | `john` `08:00:27:b2:92:c0` |`marcel``10.3.2.12`   |`routeur``08:00:27:4d:a3:18` |
+| 2     | ping       | `routeur``10.3.2.254`|`routeur``08:00:27:7a:6f:39`|`marcel``10.3.2.12`   |`marcel` `08:00:27:d3:e6:77` | 
+| 3     | pong       | `marcel` `10.3.2.12` |`routeur``08:00:27:4d:a3:18`|`john` `10.3.1.11`    |`john` `08:00:27:b2:92:c0`   |
+| 4     | pong       | `marcel` `10.3.2.12` |`marcel` `08:00:27:d3:e6:77`|`routeur``10.3.2.254` |`routeur``08:00:27:7a:6f:39` | 
+
+[Clique ici pour voir les trames ping lan1 ](./tp3_routage_lan1.pcapng)  
+[Clique ici pour voir les trames ping lan2 ](./tp3_routage_lan2.pcapng)
