@@ -151,13 +151,15 @@ rtt min/avg/max/mdev = 1.715/1.825/1.934/0.089 ms
 
 ## 2. Analyse de trames
 
-| ordre | type trame  | IP source | MAC source                | IP destination | MAC destination            |
-| ----- | ----------- | --------- | ------------------------- | -------------- | -------------------------- |
-| 1     | Requête ARP | x         | `john` `08:00:27:b2:92:c0`| x              | Broadcast `FF:FF:FF:FF:FF` |
-| 2     | Réponse ARP | x         |`routeur``08:00:27:4d:a3:18`| x             |`john`  `08:00:27:b2:92:c0` |
-| ...   | ...         | ...       | ...                       |                |                            |
-| 1     | Ping        | 10.3.1.11 |`john` `08:00:27:b2:92:c0` | 10.3.2.12      |`routeur``08:00:27:4d:a3:18`|
-| 2     | Pong        |10.3.2.12  |`routeur``08:00:27:4d:a3:18`| 10.3.1.11     | `john` `08:00:27:b2:92:c0` |
+| ordre | type trame  | IP source           | MAC source                 | IP destination      | MAC destination            |
+| ----- | ----------- | ----------------    | -------------------------  | --------------      | -------------------------- |
+| 1     | Requête ARP | x                   | `john` `08:00:27:b2:92:c0` | x                   | Broadcast `FF:FF:FF:FF:FF` |
+| 2     | Réponse ARP | x                   |`routeur``08:00:27:4d:a3:18`| x                   |`john`  `08:00:27:b2:92:c0` |
+| 3     | Ping        |`john``10.3.1.11`    |`john` `08:00:27:b2:92:c0`  |`marcel``10.3.2.12`  |`routeur``08:00:27:4d:a3:18`|
+| 3     | Ping        |`routeur``10.3.2.254`|`routeur``08:00:27:7a:6f:39`|`marcel``10.3.2.12`  |`marcel` `08:00:27:d3:e6:77`|
+| 4     | Pong        |`marcel``10.3.2.12`  |`marcel` `08:00:27:d3:e6:77`|`routeur``10.3.2.254`|`routeur``08:00:27:7a:6f:39`|
+| 4     | Pong        |`marcel``10.3.2.12`  |`routeur``08:00:27:4d:a3:18`| `john``10.3.1.11`   |`john``10.3.1.11`           |
+
 
 
 ## 3. Accès internet
@@ -227,12 +229,13 @@ faire pareil pour marcel
 
 **🌞Analyse de trames**
 
-| ordre | type trame | IP source            | MAC source                 | IP destination       | MAC destination             |
-| ----- | ---------- | -------------------- | -------------------------  | -----------------    | ------------------------    |
-| 1     | ping       | `john` `10.3.1.11`   | `john` `08:00:27:b2:92:c0` |`marcel``10.3.2.12`   |`routeur``08:00:27:4d:a3:18` |
-| 2     | ping       | `routeur``10.3.2.254`|`routeur``08:00:27:7a:6f:39`|`marcel``10.3.2.12`   |`marcel` `08:00:27:d3:e6:77` | 
-| 3     | pong       | `marcel` `10.3.2.12` |`routeur``08:00:27:4d:a3:18`|`john` `10.3.1.11`    |`john` `08:00:27:b2:92:c0`   |
-| 4     | pong       | `marcel` `10.3.2.12` |`marcel` `08:00:27:d3:e6:77`|`routeur``10.3.2.254` |`routeur``08:00:27:7a:6f:39` | 
+| ordre | type trame | IP source            | MAC source                 | IP destination      | MAC destination            |
+| ----- | ---------- | -------------------- | -------------------------  | -----------------   | ------------------------   |
+| 1     | Ping        |`john``10.3.1.11`    |`john` `08:00:27:b2:92:c0`  |`marcel``10.3.2.12`  |`routeur``08:00:27:4d:a3:18`|
+| 1     | Ping        |`routeur``10.3.2.254`|`routeur``08:00:27:7a:6f:39`|`marcel``10.3.2.12`  |`marcel` `08:00:27:d3:e6:77`|
+| 2     | Pong        |`marcel``10.3.2.12`  |`marcel` `08:00:27:d3:e6:77`|`routeur``10.3.2.254`|`routeur``08:00:27:7a:6f:39`|
+| 2     | Pong        |`marcel``10.3.2.12`  |`routeur``08:00:27:4d:a3:18`| `john``10.3.1.11`   |`john``10.3.1.11`           |
+
 
 [Clique ici pour voir les trames ping lan1 ](./tp3_routage_lan1.pcapng)  
 [Clique ici pour voir les trames ping lan2 ](./tp3_routage_lan2.pcapng)
