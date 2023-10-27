@@ -37,7 +37,8 @@ Carte réseau sans fil Wi-Fi :
 
 **🌞 Analyser la capture Wireshark**  
 
-- parmi ces 4 trames, laquelle contient les informations proposées au client ? 
+- parmi ces 4 trames, laquelle contient les informations proposées au client ?   
+
 `DHCP Offer`  
 
 ## II. Serveur DHCP
