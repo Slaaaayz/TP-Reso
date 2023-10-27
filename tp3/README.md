@@ -8,7 +8,7 @@
   - [3. Accès internet](#3-accès-internet)
   
 # I. ARP
-## 1.Echange ARP
+## 1. Echange ARP
 **🌞Générer des requêtes ARP**
 - effectuer un ping d'une machine à l'autre
 ```powershell
