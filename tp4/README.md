@@ -30,3 +30,15 @@ Configuration IP de Windows
 Carte réseau sans fil Wi-Fi :
    Bail expirant. . . . . . . . . . . . . : samedi 28 octobre 2023 08:40:32
 ```
+
+**🌞 Capturer un échange DHCP**  
+
+[Clique ici pour voir l'échange DORA ](./tp4_dhcp_client.pcapng) 
+
+**🌞 Analyser la capture Wireshark**  
+
+- parmi ces 4 trames, laquelle contient les informations proposées au client ? 
+`DHCP Offer`  
+
+## II. Serveur DHCP
+
