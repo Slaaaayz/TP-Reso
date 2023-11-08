@@ -5,7 +5,6 @@
   - [2. Serveur DHCP](#2-serveur-dhcp)
   - [3. Client DHCP](#3-client-dhcp)
   - [4. Options DHCP](#4-options-dhcp)
-  - [3. Client DHCP](#3-client-dhcp)
 ## I. DHCP Client 
 **🌞 Déterminer**
 
