@@ -41,25 +41,12 @@ PS C:\WINDOWS\system32> netstat -n -a -b | Select-String Disc -Context 1,0
     TCP    172.20.10.5:58903      162.159.61.3:443       ESTABLISHED
 >  [Discord.exe]
 ```
-[Clique ici pour voir le trafic DISCORD ](./tp5_service_1.pcapng)
+[Clique ici pour voir le trafic DISCORD ](./wireshark/tp5_service_1.pcapng)
 
 - Téléchargement STEAM : 
 ```bash
 PS C:\WINDOWS\system32> netstat -n -a -b | Select-String Steam.exe -Context 1,0
 
-    TCP    0.0.0.0:27036          0.0.0.0:0              LISTENING
->  [steam.exe]
-    TCP    127.0.0.1:27060        0.0.0.0:0              LISTENING
->  [steam.exe]
-    TCP    127.0.0.1:60853        0.0.0.0:0              LISTENING
->  [steam.exe]
-    TCP    127.0.0.1:60853        127.0.0.1:60867        ESTABLISHED
->  [steam.exe]
-    TCP    127.0.0.1:60855        0.0.0.0:0              LISTENING
->  [steam.exe]
-    TCP    127.0.0.1:60855        127.0.0.1:60866        ESTABLISHED
->  [steam.exe]
-    TCP    172.20.10.5:60874      185.25.182.52:27030    ESTABLISHED
 >  [steam.exe]
     TCP    172.20.10.5:60920      185.25.182.40:443      ESTABLISHED
 >  [steam.exe]
@@ -85,13 +72,12 @@ PS C:\WINDOWS\system32> netstat -n -a -b | Select-String Steam.exe -Context 1,0
 >  [steam.exe]
     TCP    172.20.10.5:61043      185.25.182.3:443       ESTABLISHED
 ```
-[Clique ici pour voir le trafic steam ](./tp5_service_2.pcapng)
+[Clique ici pour voir le trafic steam ](./wireshark/tp5_service_2.pcapng)
 
 - Pornhub : 
 ```bash
 PS C:\WINDOWS\system32> netstat -n -a -b | Select-String chrome.exe -Context 1,0
 
-    TCP    172.20.10.5:58195      64.233.184.188:5228    ESTABLISHED
 >  [chrome.exe]
     TCP    172.20.10.5:61136      216.58.215.42:443      ESTABLISHED
 >  [chrome.exe]
@@ -107,15 +93,12 @@ PS C:\WINDOWS\system32> netstat -n -a -b | Select-String chrome.exe -Context 1,0
 >  [chrome.exe]
     TCP    172.20.10.5:61147      152.195.34.118:443     ESTABLISHED
 ```
-[Clique ici pour voir le trafic d'une vidéo pornhub ](./tp5_service_3.pcapng)
+[Clique ici pour voir le trafic d'une vidéo pornhub ](./wireshark/tp5_service_3.pcapng)
 
 - vidéo Youtube :
 ```bash
 PS C:\WINDOWS\system32> netstat -n -a -b | Select-String chrome.exe -Context 1,0
 
-    TCP    172.20.10.5:58195      64.233.184.188:5228    ESTABLISHED
->  [chrome.exe]
-    TCP    172.20.10.5:61137      104.16.124.175:443     ESTABLISHED
 >  [chrome.exe]
     TCP    172.20.10.5:61370      142.250.179.86:443     ESTABLISHED
 >  [chrome.exe]
@@ -130,26 +113,16 @@ PS C:\WINDOWS\system32> netstat -n -a -b | Select-String chrome.exe -Context 1,0
     TCP    172.20.10.5:61376      142.250.178.138:443    ESTABLISHED
 >  [chrome.exe]
     TCP    172.20.10.5:61377      142.250.201.166:443    ESTABLISHED
->  [chrome.exe]
-    TCP    172.20.10.5:61385      172.217.20.163:443     ESTABLISHED
->  [chrome.exe]
-    TCP    172.20.10.5:61387      216.58.214.161:443     ESTABLISHED
->  [chrome.exe]
-    TCP    172.20.10.5:61393      52.1.4.16:443          ESTABLISHED
->  [chrome.exe]
-    TCP    172.20.10.5:61394      52.1.4.16:443          ESTABLISHED
->  [chrome.exe]
+
     TCP    172.20.10.5:61397      142.250.178.142:443    ESTABLISHED
 ```
 
-[Clique ici pour voir le trafic d'une vidéo Ytb ](./tp5_service_4.pcapng)
+[Clique ici pour voir le trafic d'une vidéo Ytb ](./wireshark/tp5_service_4.pcapng)
 
 - Spotify : 
 ```bash
 PS C:\WINDOWS\system32> netstat -n -a -b | Select-String spotify -Context 1,0
 
->  [Spotify.exe]
-    TCP    172.20.10.5:57870      104.199.65.124:4070    ESTABLISHED
 >  [Spotify.exe]
     TCP    172.20.10.5:57874      34.149.154.214:443     ESTABLISHED
 >  [Spotify.exe]
@@ -179,7 +152,7 @@ PS C:\WINDOWS\system32> netstat -n -a -b | Select-String spotify -Context 1,0
 >  [Spotify.exe]
     TCP    172.20.10.5:61505      35.186.224.25:443      ESTABLISHED
 ```
-[Clique ici pour voir le trafic d'une musique spotify ](./tp5_service_5.pcapng)
+[Clique ici pour voir le trafic d'une musique spotify ](./wireshark/tp5_service_5.pcapng)
 
 ## II. Setup Virtuel
 ### 1. SSH
@@ -190,14 +163,14 @@ SSH utilise TCP car il faut une connexion safe
 
 - repérez le 3-Way Handshake à l'établissement de la connexion : 
 
-![Alt text](3-way-handshake.PNG)
+![Alt text](img/3-way-handshake.PNG)
 
 - repérez du trafic SSH :
-![Alt text](<trafic ssh.PNG>)
+![Alt text](<img/trafic ssh.PNG>)
 
 - repérez le FIN ACK à la fin d'une connexion
 : 
-![Alt text](<fin ack.PNG>)
+![Alt text](<img/fin ack.PNG>)
 
 **🌞 Demandez aux OS**
 - repérez, avec une commande adaptée (netstat ou ss), la connexion SSH depuis votre machine : 
@@ -225,7 +198,7 @@ State      Recv-Q     Send-Q         Local Address:Port         Peer Address:Por
 ESTAB      0          0                  10.5.1.11:22               10.5.1.1:53641     timer:(keepalive,97min,0)
 ```
 
-[Clique ici pour voir la capture avec le 3-way handshake, un peu de trafic au milieu et une fin de connexion](../tp5_3_way2.pcapng)
+[Clique ici pour voir la capture avec le 3-way handshake, un peu de trafic au milieu et une fin de connexion](../wireshark/tp5_3_way2.pcapng)
 
 ## 2. Routage
 
@@ -350,3 +323,14 @@ LISTEN                  0                       511                             
 ```
 **🌞 Analyse trafic**
 
+- repérez :
+    - le 3 way handshake TCP :
+    ![Alt text](img/3-way-handshake_web.PNG)
+    - du trafic HTTP : 
+    ![Alt text](<img/traffic http.PNG>)
+    - le contenu de la page HTML retourné :
+    ![Alt text](<img/trame retourné html.PNG>)
+    ![Alt text](<img/message retourné html.PNG>)
+
+
+[Clique ici pour voir le 3-way handshake, la page HTML retournée, et une fin de connexion ](./wireshark/tp5_web.pcapng)
