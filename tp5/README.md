@@ -160,22 +160,14 @@ PS C:\WINDOWS\system32> netstat -n -a -b | Select-String spotify -Context 1,0
 **🌞 Examinez le trafic dans Wireshark**
 - déterminez si SSH utilise TCP ou UDP :  
 SSH utilise TCP car il faut une connexion safe
-
 - repérez le 3-Way Handshake à l'établissement de la connexion : 
-
-![Alt text](img/3-way-handshake.PNG)
-
 - repérez du trafic SSH :
-![Alt text](<img/trafic ssh.PNG>)
-
-- repérez le FIN ACK à la fin d'une connexion
-: 
-![Alt text](<img/fin ack.PNG>)
+- repérez le FIN ACK à la fin d'une connexion : 
 
 **🌞 Demandez aux OS**
 - repérez, avec une commande adaptée (netstat ou ss), la connexion SSH depuis votre machine : 
 
-```
+```bash
 PS C:\WINDOWS\system32> netstat -n -a -b | Select-String 10.5.1.1 -Context 1,0
 
    Impossible d'obtenir les informations de propriétaire
@@ -325,12 +317,7 @@ LISTEN                  0                       511                             
 
 - repérez :
     - le 3 way handshake TCP :
-    ![Alt text](img/3-way-handshake_web.PNG)
     - du trafic HTTP : 
-    ![Alt text](<img/traffic http.PNG>)
     - le contenu de la page HTML retourné :
-    ![Alt text](<img/trame retourné html.PNG>)
-    ![Alt text](<img/message retourné html.PNG>)
-
 
 [Clique ici pour voir le 3-way handshake, la page HTML retournée, et une fin de connexion ](./wireshark/tp5_web.pcapng)
