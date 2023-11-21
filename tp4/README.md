@@ -159,44 +159,27 @@ Oct 27 15:08:08 dhcp dhcpd[1686]: DHCPACK on 10.4.1.137 to 08:00:27:6f:dd:c2 via
 - **je veux aussi un cat /etc/dhcp/dhcpd.conf dans le compte-rendu, pour que je vois le fichier de configuration**
 
 ```bash
-[slayz@dhcp ~]$ cat /var/lib/dhcpd/dhcpd.leases
-# The format of this file is documented in the dhcpd.leases(5) manual page.
-# This lease file was written by isc-dhcp-4.4.2b1
+[slayz@dhcp ~]$ cat /etc/dhcp/dhcpd.conf
 
-# authoring-byte-order entry is generated, DO NOT DELETE
-authoring-byte-order little-endian;
-
-server-duid "\000\001\000\001,\316p\335\010\000'\271p\001";
-
-lease 10.4.1.137 {
-  starts 5 2023/10/27 13:03:09;
-  ends 5 2023/10/27 13:13:09;
-  cltt 5 2023/10/27 13:03:09;
-  binding state active;
-  next binding state free;
-  rewind binding state free;
-  hardware ethernet 08:00:27:6f:dd:c2;
-  uid "\001\010\000'o\335\302";
-}
-lease 10.4.1.137 {
-  starts 5 2023/10/27 13:08:08;
-  ends 5 2023/10/27 13:18:08;
-  cltt 5 2023/10/27 13:08:08;
-  binding state active;
-  next binding state free;
-  rewind binding state free;
-  hardware ethernet 08:00:27:6f:dd:c2;
-  uid "\001\010\000'o\335\302";
-}
-lease 10.4.1.137 {
-  starts 5 2023/10/27 13:13:08;
-  ends 5 2023/10/27 13:23:08;
-  cltt 5 2023/10/27 13:13:08;
-  binding state active;
-  next binding state free;
-  rewind binding state free;
-  hardware ethernet 08:00:27:6f:dd:c2;
-  uid "\001\010\000'o\335\302";
+ # create new
+# nom de domaine
+option domain-name     "srv.world";
+# nom de serveur dns ou ip a mettre
+option domain-name-servers     dlp.srv.world;
+# tmps expiration bail par defaut
+default-lease-time 600;
+# tmps expiration max
+max-lease-time 7200;
+# activer dhcp dans le lan
+authoritative;
+# specify network address and subnetmask
+subnet 10.4.1.0 netmask 255.255.255.0 {
+    # definit l'intervalle d'ip que le protocole va donner
+    range dynamic-bootp 10.4.1.137 10.4.1.237;
+    # adresse de diffusion
+    option broadcast-address 10.4.1.255;
+    # specify passerelle
+    option routers 10.4.1.254;
 }
 ```
 ### 3. Client DHCP
