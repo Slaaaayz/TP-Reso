@@ -1,4 +1,8 @@
 # TP6 : Un LAN maîtrisé meo ?
+- [II. Serveur DNS](#ii-serveur-dns)
+    - [1. Setup](#1-setup)
+    - [3. Test](#3-test)
+- [III. Serveur DHCP](#iii-serveur-dhcp)
 ## II. Serveur DNS
 ### 1. Setup
 **🌞 Dans le rendu, je veux**

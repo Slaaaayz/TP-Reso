@@ -1,8 +1,13 @@
 # TP5: TCP, UDP et services réseau
-
-**🌞 Déterminez, pour ces 5 applications, si c'est du TCP ou de l'UDP**  
+- [I. First steps](#i-first-steps)
+- [II. Setup Virtuel](#ii-setup-virtuel)
+  - [1. SSH](#1-ssh)
+  - [2. Routage](#2-routage)
+  - [3. Serveur Web](#3-serveur-web)
 
 ## I. First steps
+
+**🌞 Déterminez, pour ces 5 applications, si c'est du TCP ou de l'UDP** 
 
 - Discord : UDP
     - IP et port du serveur auquel vous vous connectez : 66.22.198.164:50004
@@ -321,15 +326,3 @@ LISTEN                  0                       511                             
     - le contenu de la page HTML retourné :
 
 [Clique ici pour voir le 3-way handshake, la page HTML retournée, et une fin de connexion ](./wireshark/tp5_web.pcapng)
-
-```bash
-[slayz@dns ~]$ sudo ss -l -t -n | grep "10.6.1.101"
-LISTEN 0      10        10.6.1.101:53        0.0.0.0:*
-```
-```bash
-[slayz@dns ~]$ sudo firewall-cmd --add-port=53/tcp --permanent
-success
-[slayz@dns ~]$ sudo firewall-cmd --reload
-success
-```
-### 3. Test
