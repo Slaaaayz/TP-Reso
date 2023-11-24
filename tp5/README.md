@@ -326,3 +326,15 @@ LISTEN                  0                       511                             
     - le contenu de la page HTML retourné :
 
 [Clique ici pour voir le 3-way handshake, la page HTML retournée, et une fin de connexion ](./wireshark/tp5_web.pcapng)
+
+```bash
+[slayz@dns ~]$ sudo ss -l -t -n | grep "10.6.1.101"
+LISTEN 0      10        10.6.1.101:53        0.0.0.0:*
+```
+```bash
+[slayz@dns ~]$ sudo firewall-cmd --add-port=53/tcp --permanent
+success
+[slayz@dns ~]$ sudo firewall-cmd --reload
+success
+```
+### 3. Test
