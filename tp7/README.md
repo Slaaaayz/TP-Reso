@@ -701,6 +701,6 @@ peer: DVR4MJBA6f2qn4CY12Xh6BDC3vG9cYar6jgk2Wi67gc=
   transfer: 13.84 KiB received, 6.55 KiB sent
 ```
 
-[Clique ici pour voir le trafic depuis le serveur VPN entrer](tp7_vpn_in.pcapng)
+[Clique ici pour voir le trafic depuis le serveur VPN entrer](/tp7/tp7_vpn_in.pcapng)
 
-[Clique ici pour voir le trafic depuis le serveur VPN sorti](tp7_vpn_out.pcapng)
+[Clique ici pour voir le trafic depuis le serveur VPN sorti](/tp7/tp7_vpn_out.pcapng)
